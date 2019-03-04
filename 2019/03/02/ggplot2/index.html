@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="介绍在ggplot2图形语法中包含以下几个图形部件：1.数据(data)2.映射(mapping)3.几何对象(geom)4.统计变换(stats)5.标度(scale)6.坐标系(coordinate)7.分面(facet)8.主题(theme)   数据(data)数据格式必须为数据框123Sys.setlocale(&amp;apos;LC_ALL&amp;apos;,&amp;apos;C&amp;apos;)libra">
+<meta name="description" content="介绍在ggplot2图形语法中包含以下几个图形部件：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ggplot2">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/ggplot2/index.html">
 <meta property="og:site_name" content="Albert&#39;s BLOG">
-<meta property="og:description" content="介绍在ggplot2图形语法中包含以下几个图形部件：1.数据(data)2.映射(mapping)3.几何对象(geom)4.统计变换(stats)5.标度(scale)6.坐标系(coordinate)7.分面(facet)8.主题(theme)   数据(data)数据格式必须为数据框123Sys.setlocale(&amp;apos;LC_ALL&amp;apos;,&amp;apos;C&amp;apos;)libra">
+<meta property="og:description" content="介绍在ggplot2图形语法中包含以下几个图形部件：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T03:38:04.234Z">
+<meta property="og:updated_time" content="2019-03-04T12:15:02.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ggplot2">
-<meta name="twitter:description" content="介绍在ggplot2图形语法中包含以下几个图形部件：1.数据(data)2.映射(mapping)3.几何对象(geom)4.统计变换(stats)5.标度(scale)6.坐标系(coordinate)7.分面(facet)8.主题(theme)   数据(data)数据格式必须为数据框123Sys.setlocale(&amp;apos;LC_ALL&amp;apos;,&amp;apos;C&amp;apos;)libra">
+<meta name="twitter:description" content="介绍在ggplot2图形语法中包含以下几个图形部件：">
 
 
 
@@ -299,7 +299,8 @@
       
 
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在ggplot2图形语法中包含以下几个图形部件：<br>1.数据(data)<br>2.映射(mapping)<br>3.几何对象(geom)<br>4.统计变换(stats)<br>5.标度(scale)<br>6.坐标系(coordinate)<br>7.分面(facet)<br>8.主题(theme)  </p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在ggplot2图形语法中包含以下几个图形部件：<br><a id="more"></a>  </p>
+<p>1.数据(data)<br>2.映射(mapping)<br>3.几何对象(geom)<br>4.统计变换(stats)<br>5.标度(scale)<br>6.坐标系(coordinate)<br>7.分面(facet)<br>8.主题(theme)  </p>
 <h3 id="数据-data"><a href="#数据-data" class="headerlink" title="数据(data)"></a>数据(data)</h3><p>数据格式必须为数据框<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sys.setlocale(&apos;LC_ALL&apos;,&apos;C&apos;)</span><br><span class="line">library(ggplot2)</span><br><span class="line">head(mtcars)  # 内置数据集</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mtcars.c &lt;- transform(mtcars, mpg = mpg^2)</span><br><span class="line">head(mtcars.c)</span><br><span class="line">p &lt;- ggplot(mtcars, aes(mpg, wt, colour = cyl)) +</span><br><span class="line">  geom_point()  #geom_point()为通过”+”以图层的方式加入点的几何对象</span><br><span class="line">p</span><br><span class="line">p %+% mtcars.c  #用mtcars.c替换data</span><br></pre></td></tr></table></figure>
 <p><strong>使用reshape2包将宽数据转换成长数据</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library(reshape2)</span><br><span class="line">mtcars.m &lt;- melt(mtcars, id = c(&quot;mpg&quot;, &quot;disp&quot;, &quot;hp&quot;, &quot;drat&quot;, &quot;wt&quot;, &quot;qsec&quot;, &quot;vs&quot;, &quot;carb&quot;)) </span><br><span class="line">head(mtcars)</span><br><span class="line">head(mtcars.m)</span><br></pre></td></tr></table></figure></p>
